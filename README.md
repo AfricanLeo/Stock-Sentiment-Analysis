@@ -28,9 +28,31 @@ The high level approach can be summed up as follows:
 
 ## Clean and Preprocess the Data
 
-At the highest level NLP works by taking texts/words in the dataset, converting it into numbers which will then be fed into a classifier/ML/AI model.  The model will then process and hopefully make sense out of the numbers. In order to analise text like tweets or sentences,  we need to clean it up by removing unnecessary characters that add noise to the data.  It is also good practice to remove stopwords that are common throughout text but does not necessarily add any additional meaning to the text. 
+Before we can convert text to numbers, we need to process the input text and make sure that the text we convert makes the most sense to a model.  In order to analise text like tweets or sentences,  we need to first clean it up by removing unnecessary characters that add noise to the data.  It is also good practice to remove stopwords that are common throughout text but does not necessarily add any additional meaning to the text. 
 
 The next step is called **tokenisation** which is the process of taking a string of words and chopping it up in words, or better said '**tokens**'. 
+
+## Bag of Words
+
+Once we have the tokens or words, we need to somehow convert these into numbers whilst maintaining enough information so that the text can be 'understood'.  One very intuitive way to do this is by building a vocabulary of words that are present in our cleaned text, and use that as a basis to work from 'understanding' the text.
+
+One such approach is the **Bag of Words (BoW)** model which is a representation of a text (sentence / document / tweet) as a list (bag) of all its words, disregarding grammar and word order but keeping count of **how many times** a word is in the input text. 
+
+Once encoded every tweet will be represented as a vector with mostly zero's, but values where words are represented, and indicating how often they are repeated in a tweet. Before we continue, it is good to attempt a visualisation by reducing the dimensions of the data using a technique like PCA (Principal Component Analysis). 
+
+![](images/bow_pca.png
+
+The first look at the data is not too bad.  Although the classes are not perfectly split, we can see at least some seperation between the two classes.  
+
+Next up the data is split into a training- and testing set and these are run through a list of classifiers.  After training the Logistic Regression  model gives an **accuracy score of 80%** which is very good as a first attempt.  
+
+## Inspect the BoW model
+
+Now we use the test data to make predictions using the classifier.  Evaluating the confusion matrix, we can see that the model's worst quadrant is on False-Positives.  As this model is used to make investment decisions, it is 'safer' to have more False-Positives (13%) as opposed to False-Negatives (only 7%) as this will produce more conservative predictions.  
+
+Before we move on, we should first inspect the model to understand which words the model uses to achieve this result.  This figure plots the top ten words for each sentiment, positive and negative.  
+
+![](images/bow_
 
 
 [**Back to Portfolio**](https://africanleo.github.io/Stock-Sentiment-Analysis/)
