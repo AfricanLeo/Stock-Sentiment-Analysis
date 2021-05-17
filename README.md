@@ -26,3 +26,11 @@ The high level approach can be summed up as follows:
 3.   Evaluate and explain it's predictions
 4.   Use insights gained in step 3, make changes to the model and repeat. 
 
+## Clean and Preprocess the Data
+
+At the highest level NLP works by taking texts/words in the dataset, converting it into numbers which will then be fed into a classifier/ML/AI model.  The model will then process and hopefully make sense out of the numbers. In order to analise text like tweets or sentences,  we need to clean it up by removing unnecessary characters that add noise to the data.  It is also good practice to remove stopwords that are common throughout text but does not necessarily add any additional meaning to the text. 
+
+The next step is called **tokenisation** which is the process of taking a string of words and chopping it up in words, or better said '**tokens**'. 
+
+
+[**Back to Portfolio**](https://africanleo.github.io/Stock-Sentiment-Analysis/)
