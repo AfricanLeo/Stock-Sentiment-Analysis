@@ -164,4 +164,4 @@ As the saying goes, (sometimes) less is more!
 
 
 
-[**Back to Portfolio**](https://africanleo.github.io/Stock-Sentiment-Analysis/)
+[**Back to Portfolio**](https://africanleo.github.io/Leonora-Schreurs-Portfolio/)
