@@ -40,7 +40,7 @@ One such approach is the **Bag of Words (BoW)** model which is a representation 
 
 Once encoded every tweet will be represented as a vector with mostly zero's, but values where words are represented, and indicating how often they are repeated in a tweet. Before we continue, it is good to attempt a visualisation by reducing the dimensions of the data using a technique like PCA (Principal Component Analysis). 
 
-![](images/bow_pca.png
+![](images/bow_pca.png)
 
 The first look at the data is not too bad.  Although the classes are not perfectly split, we can see at least some seperation between the two classes.  
 
@@ -48,11 +48,33 @@ Next up the data is split into a training- and testing set and these are run thr
 
 ## Inspect the BoW model
 
-Now we use the test data to make predictions using the classifier.  Evaluating the confusion matrix, we can see that the model's worst quadrant is on False-Positives.  As this model is used to make investment decisions, it is 'safer' to have more False-Positives (13%) as opposed to False-Negatives (only 7%) as this will produce more conservative predictions.  
+![](images/bow_cm.png)
+
+Now we use the test data to make predictions using the classifier.  Evaluating the confusion matrix that result from this, we can see that the model's worst quadrant is on False-Positives.  As this model is used to make investment decisions, it is 'safer' to have more False-Positives (13%) as opposed to False-Negatives (only 7%) as this will produce more conservative predictions.  
 
 Before we move on, we should first inspect the model to understand which words the model uses to achieve this result.  This figure plots the top ten words for each sentiment, positive and negative.  
 
-![](images/bow_
+![](images/bow_words.png)
 
+Looking at the top 10 words for each category, the classifier picks up correctly the negative tweets has the words bearish, lower, weak and short. 
+On the positive side, words like bullish, upsid (upside), nice and beauti increase our confidence in the classifier. 
+
+Doing a bit of research on specific stock prices at the time that this dataset was created (early 2020), we can see that the stock price for 'red'(no 6), short for Red 5 Limited, dipped between mid-March and end of May 2020.  Oil & Natural Gas Corporation Limited, 'ong' (no 1) stock price, on the other hand, was on a recovery at about the same period, correctly reflecting the positive sentiment of investors at the time.  
+
+Important to note at this point, however, is that with machine learning we want our model to be better at **generalising** as opposed to **memorising**.  The 'time factor' in this model will make me weary of a model that overfits on specific stock names as opposed to more general terms like bearish and bullish. 
+
+The negative list has 7 general words and 3 stock names while the positive list has 6 general words and 4 stock names.  
+
+## Vocabulary
+
+A possible solution to this problem might be the use of vocabulary structure. We can use **TF-IDF** score (Term Frequency, Inverse Document Frequency) on top of our BoW's model. 
+
+TF-IDF weighs words by how rare they are in our dataset, discounting words that are too frequent (like a stock price that is currently in the news) and just adds to the noise and causes the model to overfit. 
+
+![](images/tfidf_pca.png)
+
+The visualisation above looks very similar in nature to the BoW model, so it does not, at first glance, look as if this approach is having a huge impact. 
+
+Training a logistic regressor on the data, we get a slightly less accurate score of **79,5%**.  
 
 [**Back to Portfolio**](https://africanleo.github.io/Stock-Sentiment-Analysis/)
