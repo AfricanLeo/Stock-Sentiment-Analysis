@@ -111,6 +111,8 @@ In order to see if the Word2Vec embeddings are of any use to us, let's train a c
 
 For the Word2Vec embeddings, the Support Vector Classifier comes out as the best approach.  The accuracy of the model, however, is only **75%**, which is considerably lower than the previous two classifiers.  
 
+## Inspect the Word2Vec Model
+
 ![](images/w2v_cm.png)
 
 
