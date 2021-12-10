@@ -1,4 +1,4 @@
-# Stock Market Sentiment Analysis
+# Stock Market Sentiment Analysis - Part 1
 
 The [GameStop story](https://www.nbcnews.com/business/business-news/gamestop-reddit-explainer-what-s-happening-stock-market-n1255922) in early 2021 shocked investors, market watchers and regulators alike.  It displayed the power that social media has granted to groups of like-minded people who are able to meet up with relative ease and force their 'will' upon an institution as powerfull as Wall Street by **manipulating the sentiment** about a stock.   
 
